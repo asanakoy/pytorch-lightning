@@ -35,10 +35,12 @@ from pytorch_lightning.utilities.distributed import log, rank_zero_info, rank_ze
 from pytorch_lightning.utilities.exceptions import MisconfigurationException
 from pytorch_lightning.utilities.imports import _DEEPSPEED_AVAILABLE
 from pytorch_lightning.utilities.types import LRSchedulerTypeTuple
-from pytorch_lightning.utilities.warnings import _warn, LightningDeprecationWarning, warning_cache
+from pytorch_lightning.utilities.warnings import _warn, LightningDeprecationWarning, WarningCache
 
 if _DEEPSPEED_AVAILABLE:
     import deepspeed
+
+warning_cache = WarningCache()
 
 
 def remove_module_hooks(model: torch.nn.Module) -> None:
